@@ -1,0 +1,52 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  hr{
+    margin: 10px 0;
+    height: 2px;
+    background-color: #e2e2e2;
+    cursor: pointer;
+  }
+  h1 {
+    color: #262626;
+    font-weight: 500;
+  }
+  p {
+    max-width: 60%;
+  }
+  .list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2.5rem;
+    text-align: center;
+    margin: 20px 0;
+    overflow-x: scroll;
+    .menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      img {
+        width: 7.5vw;
+        min-width: 80px;
+        cursor: pointer;
+        border-radius: 50%;
+        transition: 0.2s;
+      }
+      p {
+        margin-top: 10px;
+        color: #747474;
+        font-size: max(1.4vw, 16px);
+        cursor: pointer;
+      }
+    }
+  }
+  .list::-webkit-scrollbar {
+    display: none;
+  }
+}
+.active{
+    border: 4px solid tomato;
+    padding: 2px;
+}

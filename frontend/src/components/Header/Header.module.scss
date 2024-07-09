@@ -1,0 +1,51 @@
+$color1: #49557e; // for text (gray)
+$color2: tomato; // for orange
+$color3: white; // for white
+$color4: #747474; // for button
+
+@keyframes fadeIn {
+    0%{
+      opacity: 0;
+    }
+    100%{
+      opacity: 100%;
+    }
+  }
+
+.container{
+    height: 34vw;
+    margin: 34px auto;
+    background: url('/header_img.png') no-repeat;
+    background-size: contain;
+    position: relative;
+}
+.content{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 1.5vw;
+    max-width: 50%;
+    bottom: 10%;
+    left: 6vw;
+    // animation: fadeIn 3s;
+    h2{
+        font-weight: 500;
+        color: $color3;
+        font-size: max(4.5vw,22px);
+    }
+    p{
+        color: $color3;
+    }
+    button{
+        border: none;
+        color: $color4;
+        font-weight: 500;
+        padding: 1vw 2.3vw;
+        background-color: $color3;
+        font-size: max(1vw, 13px);
+        border-radius: 50px;
+        cursor: pointer;
+    }
+}
