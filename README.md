@@ -1,5 +1,7 @@
 # 🍔 Flick — Full‑Stack Food Ordering App
 
+![Website Preview](./ui.png)
+
 A full-stack food ordering platform built with the MERN stack (MongoDB, Express, React, Node) and SCSS, featuring both customer-facing UI and an admin panel for managing orders, menus and users.
 
 ---
