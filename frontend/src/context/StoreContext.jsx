@@ -11,7 +11,7 @@ const StoreContextProvider = (props) => {
   const [token, setToken] = useState("");
   const [food_list, setFood_List] = useState([])
 
-  const url = "http://localhost:3000"
+  const url = "https://flick-be.onrender.com"
   
   const addtocart = (itemId) => {
     if(!cartItems[itemId]){
