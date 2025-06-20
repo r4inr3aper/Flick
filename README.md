@@ -57,7 +57,7 @@ PORT=3000
 
 ## 🌐 Live Demo
 - **Frontend**: https://flick-puce.vercel.app
-- **Admin Panel**: https://flick-admin.vercel.app
+- **Admin Panel**: https://flick-admin.vercel.app/add
 - **API**: https://flick-be.onrender.com
 
 ## ✨ Features
