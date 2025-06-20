@@ -31,36 +31,27 @@ const createRateLimit = (windowMs, max, message) => {
     };
 };
 
-// Security headers middleware
+// Security headers middleware - API optimized
 export const securityHeaders = (req, res, next) => {
     // Remove X-Powered-By header
     res.removeHeader('X-Powered-By');
 
-    // Set security headers
+    // Set basic security headers for API
     res.setHeader('X-Content-Type-Options', 'nosniff');
     res.setHeader('X-Frame-Options', 'DENY');
     res.setHeader('X-XSS-Protection', '1; mode=block');
     res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-    res.setHeader('Permissions-Policy', 'geolocation=(), microphone=(), camera=()');
 
-    // Content Security Policy
-    res.setHeader('Content-Security-Policy',
-        "default-src 'self'; " +
-        "script-src 'self'; " +
-        "style-src 'self' 'unsafe-inline'; " +
-        "img-src 'self' data: https:; " +
-        "font-src 'self'; " +
-        "connect-src 'self'; " +
-        "frame-ancestors 'none';"
-    );
+    // Don't set CSP for API endpoints as it can interfere with CORS
+    // Only set basic security headers that don't block API functionality
 
     next();
 };
 
-// Rate limiting configurations
+// Rate limiting configurations - more lenient for production
 export const generalLimiter = createRateLimit(
     15 * 60 * 1000, // 15 minutes
-    100, // max requests
+    1000, // max requests (increased for production)
     'Too many requests from this IP, please try again later.'
 );
 

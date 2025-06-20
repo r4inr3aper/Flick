@@ -1,96 +1,116 @@
-# 🍔 Flick — Full‑Stack Food Ordering App
+# 🍔 Flick — Food Delivery App
 
 ![Website Preview](./ui.png)
 
-A full-stack food ordering platform built with the MERN stack (MongoDB, Express, React, Node) and SCSS, featuring both customer-facing UI and an admin panel for managing orders, menus and users.
-
----
+A full-stack food delivery platform built with the MERN stack. Features a responsive customer interface, admin panel, and secure backend API.
 
 ## 🚀 Tech Stack
 
-- **Backend:** Node.js, Express.js  
-- **Frontend:** React.js, SCSS  
-- **Database:** MongoDB (via Mongoose)  
-- **Auth & Security:** JSON Web Tokens (JWT), bcrypt  
-- **Dev Tools:** Nodemon, Axios, dotenv
+**Frontend:** React.js, SCSS, React Router, Axios, Vite
+**Backend:** Node.js, Express.js, MongoDB, JWT, bcrypt
+**Security:** Rate limiting, CORS, input sanitization
 
----
+## 🛠 Quick Setup
 
-## 📁 Repository Structure
+### Prerequisites
+- Node.js (v18+)
+- MongoDB
+- Git
 
-```text
-Flick/
-├── backend/               # Server-side code
-│   ├── controllers/       # Route handlers
-│   ├── models/            # Mongoose schemas
-│   ├── routes/            # API routes
-│   ├── middleware/        # Auth & error handling
-│   ├── config/            # DB & env config
-│   └── server.js          # App entry point
-├── frontend/              # Client-side code
-│   ├── public/            # Static assets
-│   └── src/
-│       ├── components/    # React UI components
-│       ├── pages/         # Views (Admin, Home, Cart)
-│       └── services/      # API interaction logic
-├── package.json           # Monorepo scripts & dependencies
-└── README.md              # Project documentation
-```
+### Installation
 
-## 🛠 Getting Started
-
-To run this project locally:
-
+1. **Clone & Install**
 ```bash
-# Clone the repo
 git clone https://github.com/r4inr3aper/Flick.git
 cd Flick
-
-# Launch backend
-cd backend
-npm install
-npm run dev
-
-# Launch frontend
-cd ../frontend
-npm install
-npm start
 ```
 
-Backend runs on http://localhost:5000
+2. **Backend**
+```bash
+cd backend
+pnpm install
+cp .env.example .env  # Add your MongoDB URI and JWT secret
+pnpm run dev
+```
 
-Frontend runs on http://localhost:3000
+3. **Frontend**
+```bash
+cd ../frontend
+pnpm install
+pnpm run dev
+```
 
----
+4. **Admin Panel**
+```bash
+cd ../admin
+pnpm install
+pnpm run dev
+```
 
-## 📦 Features
+### Environment Variables
+```env
+JWT_SECRET=your-jwt-secret
+MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/flick
+NODE_ENV=development
+PORT=3000
+```
 
--- **User Flow:** View menu, add items to cart, place orders
---**Admin Panel:** Manage menu, view/delete orders, monitor users
---**Auth:** Secure login/signup for admins and customers
---**API:** RESTful endpoints with proper validation & error handling
+## 🌐 Live Demo
+- **Frontend**: https://flick-puce.vercel.app
+- **Admin Panel**: https://flick-admin.vercel.app
+- **API**: https://flick-be.onrender.com
 
----
+## ✨ Features
 
-## 📄 API Endpoints
+### Customer
+- Browse food by categories
+- Search & filter items
+- Shopping cart with promo codes
+- User authentication & guest access
+- Order tracking
+- Responsive design
 
-### 🔐 Auth
+### Admin
+- Food item management
+- Order status updates
+- Promo code creation
+- Image uploads
+- Real-time notifications
 
-- `POST /auth/register` — Register a new user  
-- `POST /auth/login` — Login and receive a JWT token  
+### Security
+- JWT authentication
+- Password hashing
+- Rate limiting
+- XSS protection
+- CORS security
 
-### 📦 Orders
+## 📱 Routes
 
-- `GET /orders` — (Admin) Retrieve a list of all orders  
-- `POST /orders` — (Customer) Place a new order  
+**Customer:** `/` (home), `/search`, `/Cart`, `/Order`, `/MyOrders`, `/contact`
+**Admin:** `/add`, `/list`, `/order`, `/promo`
 
-### 🍽 Menu
+## 🗄️ API Endpoints
 
-- `GET /menu` — Get all available menu items  
-- `POST /menu` — (Admin) Add a new menu item  
-- `PUT /menu/:id` — (Admin) Update a specific menu item  
-- `DELETE /menu/:id` — (Admin) Delete a specific menu item  
+### Authentication
+- `POST /api/user/register` - Register user
+- `POST /api/user/login` - Login user
+
+### Food Management
+- `GET /api/food/list` - Get all food items
+- `POST /api/food/add` - Add food item (Admin)
+- `POST /api/food/remove` - Remove food item (Admin)
+
+### Cart & Orders
+- `POST /api/cart/add` - Add to cart
+- `POST /api/cart/remove` - Remove from cart
+- `POST /api/order/place` - Place order
+- `GET /api/order/list` - Get all orders (Admin)
+
+### Promo Codes
+- `GET /api/promo/list` - Get promo codes
+- `POST /api/promo/validate` - Validate promo code
+- `POST /api/promo/add` - Add promo code (Admin)
 
 ## 📝 License
 
-This project is open source and available under the [MIT License](LICENSE).
+MIT License
