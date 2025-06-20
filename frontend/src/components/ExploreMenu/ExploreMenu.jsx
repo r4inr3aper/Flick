@@ -3,9 +3,9 @@ import styles from "./ExploreMenu.module.scss";
 
 const ExploreMenu = ({ category, setCategory }) => {
   return (
-    <div id="menu" className={styles.container}>
+    <div id="explore-menu" className={styles.container}>
       <h1>Explore our menu</h1>
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laudantium ea eveniet optio molestias voluptates at?</p>
+      <p>Choose from a diverse menu featuring delicious dishes crafted with the finest ingredients and culinary expertise.</p>
       <div className={styles.list}>
         {menu_list.map((item, index) => {
           return (
@@ -19,7 +19,9 @@ const ExploreMenu = ({ category, setCategory }) => {
                 src={item.menu_image}
                 alt={item.menu_name}
               />
-              <p>{item.menu_name}</p>
+              <p>{item.menu_name.split(' ').map(word =>
+                word.charAt(0).toUpperCase() + word.slice(1)
+              ).join(' ')}</p>
             </div>
           );
         })}

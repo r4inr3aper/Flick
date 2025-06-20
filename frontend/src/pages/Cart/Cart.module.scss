@@ -1,5 +1,56 @@
 .container {
-  margin-top: 100px;
+  margin: 100px auto;
+  max-width: 1200px;
+  padding: 0 20px;
+
+  .emptyCart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    min-height: 60vh;
+
+    .emptyCartIcon {
+      font-size: 5rem;
+      margin-bottom: 20px;
+      opacity: 0.5;
+    }
+
+    h2 {
+      color: #333;
+      font-size: 2rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    p {
+      color: #666;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      max-width: 400px;
+      line-height: 1.5;
+    }
+
+    .shopNowBtn {
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background: #c0392b;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+      }
+    }
+  }
 }
 .title {
   display: grid;
@@ -8,18 +59,22 @@
   color: grey;
   font-size: max(1vw, 12px);
 }
+
 .list {
   margin: 10px 0;
   color: black;
+
   img {
     width: 50px;
   }
 }
+
 hr {
   height: 1px;
   background-color: #e2e2e2;
   border: none;
 }
+
 .cross{
     cursor: pointer;
 }
@@ -29,19 +84,23 @@ hr {
     justify-content: space-between;
     gap: max(12vw, 20px);
 }
+
 .total{
     flex:1;
     display: flex;
     flex-direction: column;
     gap: 2px;
+
     h2{
         padding-bottom: 22px;
     }
+
     .details{
         display: flex;
         justify-content: space-between;
         color: #555;
     }
+
     button{
         border: none;
         color: white;
@@ -50,6 +109,7 @@ hr {
         padding: 12px 0;
         border-radius: 4px;
         cursor: pointer;
+        margin-bottom: 10px;
     }
 }
 hr{
@@ -57,9 +117,11 @@ hr{
 }
 .promo{
     flex: 1;
+
     p{
         color: #555;
     }
+
     .promoinput{
         margin-top:10px;
         display: flex;
@@ -67,12 +129,19 @@ hr{
         align-items: center;
         background-color: #eaeaea;
         border-radius: 4px;
+
         input{
             background: transparent;
             border: none;
             outline: none;
             padding-left: 10px;
+
+            &:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
         }
+
         button{
             width: max(10vw,150px);
             padding: 12px 5px;
@@ -81,11 +150,49 @@ hr{
             color: white;
             cursor: pointer;
             border-radius: 4px;
+
+            &.removeBtn {
+                background-color: #dc3545;
+
+                &:hover {
+                    background-color: #c82333;
+                }
+            }
         }
+    }
+
+    .appliedPromo {
+        margin-top: 10px;
+        color: #28a745;
+        font-weight: bold;
+        font-size: 14px;
     }
 }
 
 @media (max-width:750px) {
+    .container {
+        .emptyCart {
+            padding: 60px 20px;
+
+            .emptyCartIcon {
+                font-size: 4rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .shopNowBtn {
+                padding: 12px 25px;
+                font-size: 1rem;
+            }
+        }
+    }
+
     .bottom{
         flex-direction: column-reverse;
     }

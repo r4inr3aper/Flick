@@ -1,39 +1,75 @@
+import { Link } from 'react-router-dom'
 import { assets } from "../../assets/assets"
 import styles from "./Footer.module.scss"
 
 const Footer = () => {
   return (
-    <>
-    <div className={styles.container}>
-        <div id="#contact-us" className={styles.left}>
-            <img src={assets.logo} alt=""/>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, vero iure. Sint dignissimos illo cum culpa adipisci suscipit deleniti, molestiae quaerat enim numquam reiciendis mollitia.</p>
-            <div className={styles.icons}>
-                <img src={assets.facebook_icon} alt="" />
-                <img src={assets.twitter_icon} alt="" />
-                <img src={assets.linkedin_icon} alt="" />
-            </div>
+    <div className={styles.footerWrapper}>
+      <div className={styles.container}>
+        <div className={styles.left}>
+          <div className={styles.brand}>
+            <h1>Flick</h1>
+            <span>Food Delivery</span>
+          </div>
+          <p>Delicious food delivered fast to your doorstep.</p>
+          <div className={styles.socialIcons}>
+            <a href="#" aria-label="Facebook">
+              <img src={assets.facebook_icon} alt="Facebook" />
+            </a>
+            <a href="#" aria-label="Twitter">
+              <img src={assets.twitter_icon} alt="Twitter" />
+            </a>
+            <a href="#" aria-label="LinkedIn">
+              <img src={assets.linkedin_icon} alt="LinkedIn" />
+            </a>
+          </div>
         </div>
+
         <div className={styles.center}>
-                <h2>COMPANY</h2>
-                <ul>
-                    <li>home</li>
-                    <li>about us</li>
-                    <li>delivery</li>
-                    <li>privacy policy</li>
-                </ul>
+          <h3>Quick Links</h3>
+          <ul>
+            <li><Link to="/">Home</Link></li>
+            <li><a href="#explore-menu">Menu</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><Link to="/contact">Contact</Link></li>
+          </ul>
         </div>
+
+        <div className={styles.services}>
+          <h3>Services</h3>
+          <ul>
+            <li>Fast Delivery</li>
+            <li>Online Ordering</li>
+            <li>24/7 Support</li>
+          </ul>
+        </div>
+
         <div className={styles.right}>
-            <h2>GET IN TOUCH</h2>
-            <ul>
-                <li>+91-9876543210</li>
-                <li>contact@tomato.com</li>
-            </ul>
+          <h3>Contact</h3>
+          <div className={styles.contactInfo}>
+            <div className={styles.contactItem}>
+              <span className={styles.label}>📞 Phone:</span>
+              <span>+1 (555) 123-4567</span>
+            </div>
+            <div className={styles.contactItem}>
+              <span className={styles.label}>✉️ Email:</span>
+              <span>hello@flick.com</span>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div className={styles.bottomBar}>
+        <div className={styles.bottomContent}>
+          <p>&copy; 2024 Flick. All rights reserved.</p>
+          <div className={styles.legalLinks}>
+            <a href="#privacy">Privacy Policy</a>
+            <a href="#terms">Terms of Service</a>
+            <a href="#cookies">Cookie Policy</a>
+          </div>
+        </div>
+      </div>
     </div>
-        {/* <hr /> */}
-        {/* <p className={styles.copyright}>All Rights Reserved</p> */}
-    </>
   )
 }
 export default Footer

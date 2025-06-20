@@ -27,6 +27,13 @@ const Sidebar = () => {
           <img src={assets.order_icon} alt="order" />
           <p>orders</p>
         </NavLink>
+        <NavLink
+          to="/promo"
+          className={({ isActive }) => isActive ? `${styles.option} ${styles.active}` : styles.option}
+        >
+          <img src={assets.add_icon} alt="promo" />
+          <p>promo codes</p>
+        </NavLink>
       </div>
     </div>
   );

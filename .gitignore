@@ -21,8 +21,9 @@ Thumbs.db
 
 # Environment files
 .env
+.env.*
 .env.local
-.env.*.local
+.env.example
 
 # VS Code settings
 .vscode/
@@ -50,3 +51,8 @@ temp/
 # Optional: Ignore lock files (optional)
 package-lock.json
 yarn.lock
+pnpm-lock.yaml
+
+# Backend uploads (user uploaded files) - commented out to include in repo
+# backend/uploads/
+# uploads/

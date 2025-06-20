@@ -4,20 +4,21 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const List = () => {
-  const url = "http://localhost:3000";
+  const url = "https://flick-be.onrender.com";
   const [list, setList] = useState([]);
 
   const removeFood = async (foodId) => {
     try {
+      toast.info("Removing food item...");
       const response = await axios.post(`${url}/api/food/remove`, { id: foodId });
       if (response.data.success) {
-        toast.success(response.data.message);
+        toast.success("Food item removed successfully");
         await fetchList();
       } else {
-        toast.error("Error removing food item");
+        toast.error("Failed to remove food item");
       }
     } catch (error) {
-      toast.error("An error occurred while removing the food item");
+      toast.error("Error removing food item");
       console.error("Remove Food Error:", error);
     }
   };
@@ -27,12 +28,14 @@ const List = () => {
       const response = await axios.get(`${url}/api/food/list`);
       if (response.data.success) {
         setList(response.data.data);
-        console.log(response.data);
+        if (response.data.data.length === 0) {
+          toast.info("No food items found");
+        }
       } else {
-        toast.error("Error fetching food list");
+        toast.error("Failed to load food items");
       }
     } catch (error) {
-      toast.error("An error occurred while fetching the food list");
+      toast.error("Unable to connect to server");
       console.error("Fetch List Error:", error);
     }
   };
@@ -42,25 +45,51 @@ const List = () => {
   }, []);
 
   return (
-    <div className={`${styles.list} ${styles.add} ${styles.flexcol}`}>
-      <p>all foods list</p>
-      <div className={styles.table}>
-        <div className={`${styles.items} ${styles.title}`}>
-          <b>image</b>
-          <b>name</b>
-          <b>category</b>
-          <b>price</b>
-          <b>remove</b>
-        </div>
-        {list.map((item, index) => (
-          <div key={index} className={styles.items}>
-            <img src={`${url}/images/${item.image}`} alt="" />
-            <p>{item.name}</p>
-            <p>{item.category}</p>
-            <p>${item.price}</p>
-            <p onClick={() => removeFood(item._id)} className={styles.cursor}>X</p>
+    <div className={styles.container}>
+      <div className={styles.header}>
+        <h1>Food Items Management</h1>
+        <p>Manage all food items in your restaurant (latest first)</p>
+      </div>
+
+      <div className={styles.foodList}>
+        {list.length === 0 ? (
+          <div className={styles.noItems}>
+            <h3>No food items found</h3>
+            <p>No food items have been added yet.</p>
           </div>
-        ))}
+        ) : (
+          list.map((item, index) => (
+            <div key={item._id || index} className={styles.foodCard}>
+              <button
+                onClick={() => removeFood(item._id)}
+                className={styles.deleteBtn}
+                title="Remove item"
+              >
+                ×
+              </button>
+
+              <div className={styles.foodHeader}>
+                <div className={styles.foodImage}>
+                  <img src={`${url}/images/${item.image}`} alt={item.name} />
+                </div>
+                <div className={styles.foodInfo}>
+                  <h3>{item.name}</h3>
+                  <span className={styles.category}>{item.category}</span>
+                </div>
+                <div className={styles.foodPrice}>
+                  <span className={styles.price}>${item.price}</span>
+                </div>
+              </div>
+
+              <div className={styles.foodContent}>
+                <div className={styles.foodDetails}>
+                  <h4>Description</h4>
+                  <p>{item.description || 'No description available'}</p>
+                </div>
+              </div>
+            </div>
+          ))
+        )}
       </div>
     </div>
   );

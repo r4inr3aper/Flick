@@ -1,0 +1,429 @@
+.container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 30px 40px;
+
+  .header {
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+
+    h1 {
+      color: #333;
+      font-size: 2rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    p {
+      color: #666;
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .addBtn {
+      background: #28a745;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+
+      &:hover {
+        background: #218838;
+      }
+    }
+  }
+
+  .form {
+    background: white;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+    .formHeader {
+      background: #28a745;
+      color: white;
+      padding: 15px 20px;
+      text-align: center;
+
+      h3 {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 600;
+      }
+    }
+
+    .formContent {
+      padding: 20px;
+
+      .formGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 15px;
+        margin-bottom: 20px;
+
+        input, select {
+          padding: 10px 12px;
+          border: 1px solid #ddd;
+          border-radius: 6px;
+          font-size: 0.85rem;
+          transition: all 0.2s;
+
+          &:focus {
+            outline: none;
+            border-color: #28a745;
+            box-shadow: 0 0 0 2px rgba(40, 167, 69, 0.1);
+          }
+
+          &::placeholder {
+            color: #999;
+          }
+        }
+
+        select {
+          background: white;
+          cursor: pointer;
+        }
+      }
+
+      .formActions {
+        display: flex;
+        gap: 10px;
+        justify-content: flex-end;
+
+        .cancelBtn {
+          background: #f8f9fa;
+          color: #6c757d;
+          border: 1px solid #dee2e6;
+          padding: 8px 16px;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 0.85rem;
+          transition: all 0.2s;
+
+          &:hover {
+            background: #e9ecef;
+            border-color: #adb5bd;
+          }
+        }
+
+        .submitBtn {
+          background: #28a745;
+          color: white;
+          border: none;
+          padding: 8px 16px;
+          border-radius: 6px;
+          cursor: pointer;
+          font-size: 0.85rem;
+          transition: all 0.2s;
+
+          &:hover {
+            background: #218838;
+          }
+        }
+      }
+    }
+  }
+
+  .noPromos {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+
+    h3 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #666;
+    }
+  }
+
+  .promoList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .promoCard {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 100%;
+
+      .promoHeader {
+        background: #f8f9fa;
+        padding: 16px 20px;
+        border-bottom: 1px solid #e0e0e0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .promoInfo {
+          h3 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+            font-weight: 600;
+          }
+
+          .description {
+            color: #666;
+            font-size: 0.85rem;
+          }
+        }
+
+        .promoDiscount {
+          text-align: right;
+
+          .discount {
+            display: block;
+            color: #e74c3c;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+          }
+
+          .active {
+            color: #28a745;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: #d4edda;
+            padding: 2px 8px;
+            border-radius: 12px;
+          }
+
+          .inactive {
+            color: #dc3545;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: #f8d7da;
+            padding: 2px 8px;
+            border-radius: 12px;
+          }
+        }
+      }
+
+      .promoContent {
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 1fr 200px;
+        gap: 30px;
+        align-items: start;
+
+        h4 {
+          color: #333;
+          font-size: 0.9rem;
+          margin-bottom: 8px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .promoDetails {
+          .detailsList {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+
+            .detailItem {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 8px 12px;
+              background: #f8f9fa;
+              border-radius: 4px;
+
+              .label {
+                color: #666;
+                font-size: 0.85rem;
+                font-weight: 500;
+              }
+
+              .value {
+                color: #333;
+                font-size: 0.85rem;
+                font-weight: 600;
+              }
+            }
+          }
+        }
+
+        .actionSection {
+          .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            .toggleBtn {
+              background: #007bff;
+              color: white;
+              border: none;
+              padding: 10px 15px;
+              border-radius: 6px;
+              cursor: pointer;
+              font-size: 0.85rem;
+              transition: all 0.2s;
+
+              &:hover {
+                background: #0056b3;
+              }
+            }
+
+            .deleteBtn {
+              background: #dc3545;
+              color: white;
+              border: none;
+              padding: 10px 15px;
+              border-radius: 6px;
+              cursor: pointer;
+              font-size: 0.85rem;
+              transition: all 0.2s;
+
+              &:hover {
+                background: #c82333;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 15px;
+    width: 100%;
+
+    .header {
+      margin-bottom: 20px;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      .addBtn {
+        padding: 10px 20px;
+        font-size: 0.85rem;
+      }
+    }
+
+    .form {
+      .formHeader {
+        padding: 12px 15px;
+
+        h3 {
+          font-size: 1rem;
+        }
+      }
+
+      .formContent {
+        padding: 15px;
+
+        .formGrid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+
+          input, select {
+            padding: 8px 10px;
+            font-size: 0.8rem;
+          }
+        }
+
+        .formActions {
+          flex-direction: column;
+          gap: 8px;
+
+          .cancelBtn,
+          .submitBtn {
+            padding: 8px 12px;
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+
+    .promoList {
+      gap: 15px;
+
+      .promoCard {
+        .promoHeader {
+          padding: 12px 15px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+
+          .promoInfo {
+            h3 {
+              font-size: 1rem;
+            }
+
+            .description {
+              font-size: 0.8rem;
+            }
+          }
+
+          .promoDiscount {
+            text-align: left;
+
+            .discount {
+              font-size: 1.1rem;
+            }
+          }
+        }
+
+        .promoContent {
+          padding: 15px;
+          grid-template-columns: 1fr;
+          gap: 20px;
+
+          h4 {
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+          }
+
+          .promoDetails {
+            .detailsList {
+              .detailItem {
+                padding: 6px 10px;
+
+                .label,
+                .value {
+                  font-size: 0.8rem;
+                }
+              }
+            }
+          }
+
+          .actionSection {
+            .actions {
+              flex-direction: row;
+              gap: 8px;
+
+              .toggleBtn,
+              .deleteBtn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+                flex: 1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

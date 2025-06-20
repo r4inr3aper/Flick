@@ -36,3 +36,55 @@ hr{
     opacity: 100%;
   }
 }
+
+/* Mobile responsiveness for main content */
+@media (max-width: 900px) {
+  .main-content {
+    margin-left: 60px !important;
+    width: calc(100% - 60px) !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    margin-left: 50px !important;
+    width: calc(100% - 50px) !important;
+  }
+
+  /* Adjust navbar height for mobile */
+  body {
+    padding-top: 50px;
+  }
+}
+
+/* Global responsive utilities */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/* Responsive text */
+@media (max-width: 768px) {
+  h1 { font-size: 1.5rem !important; }
+  h2 { font-size: 1.3rem !important; }
+  h3 { font-size: 1.1rem !important; }
+  h4 { font-size: 1rem !important; }
+
+  #app-content {
+    margin-top: 55px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.3rem !important; }
+  h2 { font-size: 1.1rem !important; }
+  h3 { font-size: 1rem !important; }
+  h4 { font-size: 0.9rem !important; }
+
+  #app-content {
+    margin-top: 50px !important;
+  }
+}

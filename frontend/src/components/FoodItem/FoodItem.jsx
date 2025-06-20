@@ -5,14 +5,23 @@ import { useContext} from "react";
 import { StoreContext } from "../../context/StoreContext";
 
 const FoodItem = ({ name, id, image, description, price }) => {
-  
-  const {cartItems, addtocart, removefromcart} = useContext(StoreContext);
-  const url = "http://localhost:3000"
+
+  const {cartItems, addtocart, removefromcart, url} = useContext(StoreContext);
+
+  // Handle both static images (imported) and backend images (filename strings)
+  const getImageSrc = () => {
+    // If image is a string (backend data), construct URL
+    if (typeof image === 'string') {
+      return url + "/images/" + image;
+    }
+    // If image is an imported object (static data), use it directly
+    return image;
+  };
 
   return (
     <div className={styles.container}>
       <div className={styles.image}>
-        <img src={url+"/images/"+image} alt={name} />
+        <img src={getImageSrc()} alt={name} />
       {!cartItems[id]?
           <img src={assets.add_icon_white} onClick={()=>addtocart(id)} className={styles.addtocart}/>
           :<div className={styles.counter}>

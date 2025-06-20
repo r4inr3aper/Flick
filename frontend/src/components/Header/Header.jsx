@@ -1,13 +1,18 @@
 import styles from "./Header.module.scss"
 
 const Header = () => {
+  const handleViewMenu = () => {
+    document.getElementById('explore-menu')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <div className={styles.container}>
         <div className={styles.content}>
             <h2>Order your favourite food here.</h2>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cumque inventore earum nulla quia molestiae est aperiam culpa magni delectus impedit.</p>
-            <button>View Menu</button>
+            <p>Discover delicious meals from top restaurants in your area. Fresh ingredients, fast delivery, and unbeatable taste - all at your fingertips with Flick.</p>
+            <button onClick={handleViewMenu}>View Menu</button>
         </div>
+        <div className={styles.foodImage}></div>
     </div>
   )
 }

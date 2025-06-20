@@ -1,0 +1,359 @@
+.container {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 30px 40px;
+
+  .header {
+    margin-bottom: 30px;
+    text-align: center;
+
+    h1 {
+      color: #333;
+      font-size: 2rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    p {
+      color: #666;
+      font-size: 1rem;
+    }
+  }
+
+  .noOrders {
+    text-align: center;
+    padding: 60px 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    border: 1px solid #eee;
+
+    h3 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #666;
+    }
+  }
+
+  .ordersList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    .orderCard {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+      width: 100%;
+
+      .orderHeader {
+        background: #f8f9fa;
+        padding: 16px 20px;
+        border-bottom: 1px solid #e0e0e0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .orderInfo {
+          h3 {
+            color: #333;
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+            font-weight: 600;
+          }
+
+          .orderDate {
+            color: #666;
+            font-size: 0.85rem;
+          }
+        }
+
+        .orderAmount {
+          text-align: right;
+
+          .amount {
+            display: block;
+            color: #e74c3c;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 2px;
+          }
+
+          .itemCount {
+            color: #666;
+            font-size: 0.8rem;
+          }
+        }
+      }
+
+      .orderContent {
+        padding: 20px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 200px;
+        gap: 30px;
+        align-items: start;
+
+        h4 {
+          color: #333;
+          font-size: 0.9rem;
+          margin-bottom: 8px;
+          font-weight: 600;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+
+        .customerInfo {
+          .customerName {
+            color: #333;
+            font-weight: 600;
+            margin-bottom: 4px;
+          }
+
+          .customerPhone {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+          }
+
+          .customerAddress {
+            color: #666;
+            font-size: 0.85rem;
+            line-height: 1.4;
+          }
+        }
+
+        .orderItems {
+          .itemsList {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+
+            .itemChip {
+              background: #f0f0f0;
+              padding: 4px 8px;
+              border-radius: 4px;
+              font-size: 0.8rem;
+              color: #333;
+              border: 1px solid #e0e0e0;
+            }
+          }
+        }
+
+        .statusSection {
+          .statusSelect {
+            width: 100%;
+            background: white;
+            border: 1px solid #ddd;
+            outline: none;
+            padding: 10px 12px;
+            border-radius: 6px;
+            color: #333;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+
+            &:hover {
+              border-color: #999;
+            }
+
+            &:focus {
+              border-color: #e74c3c;
+              box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+            }
+
+            option {
+              background: white;
+              color: #333;
+              padding: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 15px;
+    width: 100%;
+
+    .header {
+      margin-bottom: 20px;
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+    }
+
+    .ordersList {
+      gap: 15px;
+
+      .orderCard {
+        .orderHeader {
+          padding: 12px 15px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+
+          .orderInfo {
+            h3 {
+              font-size: 1rem;
+            }
+
+            .orderDate {
+              font-size: 0.8rem;
+            }
+          }
+
+          .orderAmount {
+            text-align: left;
+
+            .amount {
+              font-size: 1.1rem;
+            }
+
+            .itemCount {
+              font-size: 0.75rem;
+            }
+          }
+        }
+
+        .orderContent {
+          padding: 15px;
+          grid-template-columns: 1fr;
+          gap: 20px;
+
+          h4 {
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+          }
+
+          .customerInfo {
+            .customerName {
+              font-size: 0.9rem;
+            }
+
+            .customerPhone,
+            .customerAddress {
+              font-size: 0.8rem;
+            }
+          }
+
+          .orderItems {
+            .itemsList {
+              gap: 4px;
+
+              .itemChip {
+                font-size: 0.75rem;
+                padding: 3px 6px;
+              }
+            }
+          }
+
+          .statusSection {
+            .statusSelect {
+              padding: 8px 10px;
+              font-size: 0.85rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 15px 10px;
+
+    .header {
+      margin-bottom: 15px;
+
+      h1 {
+        font-size: 1.3rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+    }
+
+    .ordersList {
+      gap: 12px;
+
+      .orderCard {
+        .orderHeader {
+          padding: 10px 12px;
+
+          .orderInfo {
+            h3 {
+              font-size: 0.9rem;
+            }
+
+            .orderDate {
+              font-size: 0.75rem;
+            }
+          }
+
+          .orderAmount {
+            .amount {
+              font-size: 1rem;
+            }
+
+            .itemCount {
+              font-size: 0.7rem;
+            }
+          }
+        }
+
+        .orderContent {
+          padding: 12px;
+          gap: 15px;
+
+          h4 {
+            font-size: 0.8rem;
+            margin-bottom: 4px;
+          }
+
+          .customerInfo {
+            .customerName {
+              font-size: 0.8rem;
+            }
+
+            .customerPhone,
+            .customerAddress {
+              font-size: 0.75rem;
+            }
+          }
+
+          .orderItems {
+            .itemsList {
+              gap: 3px;
+
+              .itemChip {
+                font-size: 0.7rem;
+                padding: 2px 5px;
+              }
+            }
+          }
+
+          .statusSection {
+            .statusSelect {
+              padding: 6px 8px;
+              font-size: 0.8rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}

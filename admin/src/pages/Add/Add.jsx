@@ -5,8 +5,9 @@ import axios from "axios";
 import { toast } from "react-toastify";
 
 const Add = () => {
-  const url = "http://localhost:3000";
+  const url = "https://flick-be.onrender.com";
   const [image, setImage] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const [data, setData] = useState({
     name: "",
@@ -17,14 +18,35 @@ const Add = () => {
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
+
+    // Validation
+    if (!data.name.trim()) {
+      toast.error("Please enter a product name");
+      return;
+    }
+    if (!data.description.trim()) {
+      toast.error("Please enter a product description");
+      return;
+    }
+    if (!data.price || data.price <= 0) {
+      toast.error("Please enter a valid price");
+      return;
+    }
+    if (!image) {
+      toast.error("Please upload a product image");
+      return;
+    }
+
     const formData = new FormData();
     formData.append("name", data.name);
     formData.append("description", data.description);
     formData.append("price", Number(data.price));
     formData.append("category", data.category);
     formData.append("image", image);
-    
+
     try {
+      setLoading(true);
+      toast.info("Adding food item...");
       const response = await axios.post(`${url}/api/food/add`, formData);
       if (response.data.success) {
         setData({
@@ -34,14 +56,15 @@ const Add = () => {
           category: "salad",
         });
         setImage(false);
-        toast.success(response.data.message)
+        toast.success("Food item added successfully!");
       } else {
-        console.error("Error adding food item:", response.data.message);
-        toast.error(response.data.message)
+        toast.error(response.data.message || "Failed to add food item");
       }
     } catch (error) {
       console.error("Error during form submission:", error);
-      toast.error(error)
+      toast.error("Unable to add food item. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -112,7 +135,9 @@ const Add = () => {
             />
           </div>
         </div>
-        <button type="submit">add</button>
+        <button type="submit" disabled={loading}>
+          {loading ? "Adding..." : "Add"}
+        </button>
       </form>
     </div>
   );

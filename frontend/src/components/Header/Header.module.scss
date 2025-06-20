@@ -1,51 +1,188 @@
 $color1: #49557e; // for text (gray)
-$color2: tomato; // for orange
+$color2: #e74c3c; // for brand red
 $color3: white; // for white
 $color4: #747474; // for button
 
-@keyframes fadeIn {
-    0%{
-      opacity: 0;
-    }
-    100%{
-      opacity: 100%;
-    }
-  }
-
 .container{
-    height: 34vw;
-    margin: 34px auto;
-    background: url('/header_img.png') no-repeat;
-    background-size: contain;
+    height: 500px;
+    margin: 30px auto;
+    background: url('/header_img.png') no-repeat center center;
+    background-size: cover;
+    border-radius: 20px;
     position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    padding: 0 40px;
+
+    // Add overlay for better text visibility
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.3);
+        z-index: 1;
+    }
 }
+
 .content{
-    position: absolute;
     display: flex;
     flex-direction: column;
-    align-items: start;
+    align-items: flex-start;
     justify-content: center;
-    gap: 1.5vw;
+    gap: 20px;
     max-width: 50%;
-    bottom: 10%;
-    left: 6vw;
-    // animation: fadeIn 3s;
+    z-index: 2;
+    position: relative;
+
     h2{
-        font-weight: 500;
+        font-weight: 600;
         color: $color3;
-        font-size: max(4.5vw,22px);
+        font-size: 3rem;
+        line-height: 1.2;
+        margin: 0;
     }
+
     p{
         color: $color3;
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin: 0;
+        opacity: 0.95;
     }
+
     button{
         border: none;
-        color: $color4;
-        font-weight: 500;
-        padding: 1vw 2.3vw;
+        color: #333;
+        font-weight: 600;
+        padding: 15px 30px;
         background-color: $color3;
-        font-size: max(1vw, 13px);
+        font-size: 1rem;
         border-radius: 50px;
         cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+    }
+}
+
+
+
+// Responsive styles
+@media (max-width: 1024px) {
+    .container {
+        height: 450px;
+        padding: 0 30px;
+        background-size: cover;
+        margin: 25px auto;
+    }
+
+    .content {
+        max-width: 55%;
+
+        h2 {
+            font-size: 2.8rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+        }
+
+        button {
+            padding: 16px 32px;
+            font-size: 1.05rem;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        height: 400px;
+        padding: 0 20px;
+        margin: 20px auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0; // Remove curves for mobile
+
+        // Increase overlay opacity for mobile
+        &::before {
+            background: rgba(0, 0, 0, 0.4);
+        }
+    }
+
+    .content {
+        max-width: 90%;
+        text-align: center;
+        align-items: center;
+
+        h2 {
+            font-size: 2.2rem;
+            line-height: 1.1;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.4;
+            margin: 15px 0;
+        }
+
+        button {
+            padding: 14px 28px;
+            font-size: 0.95rem;
+            margin-top: 15px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        height: 350px;
+        padding: 25px 15px;
+        margin: 15px auto;
+        border-radius: 0; // Remove curves for small mobile
+
+        // Further increase overlay opacity for small mobile
+        &::before {
+            background: rgba(0, 0, 0, 0.45);
+        }
+    }
+
+    .content {
+        gap: 18px;
+        max-width: 95%;
+
+        h2 {
+            font-size: 1.9rem;
+            line-height: 1.1;
+        }
+
+        p {
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 0.9rem;
+            margin-top: 12px;
+        }
+    }
+}
+
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
     }
 }

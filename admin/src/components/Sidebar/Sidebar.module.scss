@@ -1,38 +1,116 @@
 .container {
     width: 15vw;
-    border: 1.5px solid #a9a9a9;
-    border-top: 0;
-    height: 85vh;
+    min-width: 200px;
+    border-right: 1px solid #e0e0e0;
+    height: calc(100vh - 60px);
     font-size: max(1vw, 10px);
+    position: fixed;
+    top: 60px;
+    left: 0;
+    background: white;
+    z-index: 999;
   
     .options {
-      padding-top: 50px;
-      padding-left: 20%;
+      padding-top: 30px;
+      padding-left: 15px;
+      padding-right: 15px;
       display: flex;
       flex-direction: column;
-      gap: 20px;
+      gap: 15px;
   
       .option {
         display: flex;
         align-items: center;
         gap: 12px;
-        border: 1px solid #a9a9a9;
-        border-right: 0;
-        padding: 8px 10px;
-        border-radius: 3px 0 0 3px;
+        border: 1px solid #e0e0e0;
+        padding: 12px 15px;
+        border-radius: 6px;
         cursor: pointer;
-  
+        text-decoration: none;
+        color: #333;
+        transition: all 0.2s;
+
+        &:hover {
+          background-color: #f8f9fa;
+          border-color: #ccc;
+        }
+
         &.active {
           background-color: #fff0ed;
           border-color: tomato;
+          color: tomato;
+        }
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+
+        p {
+          margin: 0;
+          font-weight: 500;
+          text-transform: capitalize;
         }
       }
     }
   }
   
-  @media (max-width: 900px) {
-    .option p {
-      display: none;
+@media (max-width: 900px) {
+  .container {
+    width: 60px;
+    min-width: 60px;
+
+    .options {
+      padding-left: 8px;
+      padding-right: 8px;
+
+      .option {
+        padding: 12px 8px;
+        justify-content: center;
+
+        p {
+          display: none;
+        }
+
+        img {
+          width: 24px;
+          height: 24px;
+        }
+      }
     }
   }
+}
+
+@media (max-width: 768px) {
+  .container {
+    top: 55px;
+    height: calc(100vh - 55px);
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    width: 50px;
+    min-width: 50px;
+    top: 50px;
+    height: calc(100vh - 50px);
+
+    .options {
+      padding-left: 5px;
+      padding-right: 5px;
+      padding-top: 20px;
+      gap: 10px;
+
+      .option {
+        padding: 10px 5px;
+        border-radius: 4px;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+}
   

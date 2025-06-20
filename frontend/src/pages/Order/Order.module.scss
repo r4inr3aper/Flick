@@ -1,51 +1,83 @@
-form{
+.container {
+    margin-top: 50px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+
+    .header {
+        text-align: center;
+        margin-bottom: 40px;
+
+        h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #666;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+
+    }
+}
+
+.orderForm {
     display: flex;
-    align-self:start;
+    align-self: start;
     justify-content: space-between;
     gap: 100px;
-    margin-top: 100px;
-    .left{
+
+    .left {
         width: 100%;
-        max-width: 30%,500px;
-        p{
+        max-width: max(30%, 500px);
+
+        .title {
             font-size: 30px;
             font-weight: 600;
             margin-bottom: 50px;
         }
-        input{
-            margin-bottom:15px;
+
+        input {
+            margin-bottom: 15px;
             width: 100%;
             padding: 10px;
             border: 1px solid #c5c5c5;
             border-radius: 4px;
             outline-color: tomato;
+        }
+    }
+
+    .right {
+        width: 100%;
+        max-width: max(40%, 500px);
     }
 }
-}
 
-.right{
-    width: 100%;
-    max-width: max(40%,500px);
-}
-.fields{
+.fields {
     display: flex;
     gap: 15px;
 }
 
-.total{
-    flex:1;
+.total {
+    flex: 1;
     display: flex;
     flex-direction: column;
     gap: 2px;
-    h2{
+
+    h2 {
         padding-bottom: 22px;
     }
-    .details{
+
+    .details {
         display: flex;
         justify-content: space-between;
         color: #555;
     }
-    button{
+
+    button {
         border: none;
         color: white;
         background-color: tomato;
@@ -56,3 +88,272 @@ form{
         margin-top: 30px;
     }
 }
+
+.promo {
+    margin: 20px 0;
+
+    p {
+        color: #555;
+        margin-bottom: 10px;
+    }
+
+    .promoinput {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #eaeaea;
+        border-radius: 4px;
+        margin-bottom: 10px;
+
+        input {
+            background: transparent;
+            border: none;
+            outline: none;
+            padding: 10px;
+            flex: 1;
+
+            &:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+        }
+
+        button {
+            width: auto;
+            padding: 10px 15px;
+            margin: 0;
+            background-color: black;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 14px;
+
+            &.removeBtn {
+                background-color: #dc3545;
+
+                &:hover {
+                    background-color: #c82333;
+                }
+            }
+        }
+    }
+
+    .appliedPromo {
+        color: #28a745;
+        font-weight: bold;
+        font-size: 14px;
+        margin-top: 10px;
+    }
+}
+
+// Mobile responsive styles
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin-top: 30px;
+
+        .header {
+            margin-bottom: 30px;
+            padding: 0 10px;
+
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 12px;
+            }
+
+            p {
+                font-size: 0.95rem;
+                margin-bottom: 20px;
+            }
+        }
+    }
+
+    .orderForm {
+        flex-direction: column;
+        gap: 35px;
+        padding: 0 10px;
+
+        .left {
+            max-width: 100%;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 8px;
+
+            .title {
+                font-size: 1.5rem;
+                margin-bottom: 30px;
+                padding-bottom: 10px;
+            }
+
+            input {
+                padding: 15px;
+                font-size: 16px; // Prevents zoom on iOS
+                margin-bottom: 15px;
+            }
+        }
+
+        .right {
+            max-width: 100%;
+            padding: 20px;
+            background: #fafafa;
+            border-radius: 8px;
+        }
+    }
+
+    .fields {
+        flex-direction: column;
+        gap: 0;
+
+        input {
+            margin-bottom: 15px;
+        }
+    }
+
+    .total {
+        h2 {
+            font-size: 1.3rem;
+            padding-bottom: 20px;
+            margin-bottom: 15px;
+        }
+
+        .details {
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+            padding: 8px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 18px 0;
+            font-size: 1rem;
+            margin-top: 25px;
+        }
+    }
+
+    .promo {
+        margin: 20px 0;
+        padding: 15px 0;
+
+        p {
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .promoinput {
+            input {
+                padding: 15px;
+                font-size: 16px; // Prevents zoom on iOS
+            }
+
+            button {
+                padding: 15px 18px;
+                font-size: 0.9rem;
+            }
+        }
+
+        .appliedPromo {
+            font-size: 0.85rem;
+            margin-top: 12px;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 18px;
+        margin-top: 20px;
+
+        .header {
+            margin-bottom: 25px;
+            padding: 0 8px;
+
+            h1 {
+                font-size: 1.5rem;
+                margin-bottom: 10px;
+            }
+
+            p {
+                font-size: 0.85rem;
+                margin-bottom: 18px;
+            }
+        }
+    }
+
+    .orderForm {
+        gap: 30px;
+        padding: 0 8px;
+
+        .left {
+            padding: 18px;
+
+            .title {
+                font-size: 1.3rem;
+                margin-bottom: 25px;
+                padding-bottom: 8px;
+            }
+
+            input {
+                padding: 16px;
+                margin-bottom: 12px;
+            }
+        }
+
+        .right {
+            padding: 18px;
+        }
+    }
+
+    .fields {
+        input {
+            margin-bottom: 12px;
+        }
+    }
+
+    .total {
+        h2 {
+            font-size: 1.2rem;
+            padding-bottom: 18px;
+            margin-bottom: 12px;
+        }
+
+        .details {
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            padding: 6px 0;
+        }
+
+        button {
+            padding: 18px 0;
+            font-size: 0.95rem;
+            margin-top: 22px;
+        }
+    }
+
+    .promo {
+        margin: 18px 0;
+        padding: 12px 0;
+
+        p {
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .promoinput {
+            input {
+                padding: 16px;
+            }
+
+            button {
+                padding: 16px 15px;
+                font-size: 0.85rem;
+            }
+        }
+
+        .appliedPromo {
+            font-size: 0.8rem;
+            margin-top: 10px;
+        }
+    }
+}
+

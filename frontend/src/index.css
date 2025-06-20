@@ -10,14 +10,44 @@
 }
 body{
   min-height: 100vh;
+  color: #262626;
+  line-height: 1.6;
 }
 a{
   text-decoration: none;
   color: inherit;
 }
 .app{
-  width: 80%;
+  width: 100%;
   margin: auto;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 768px) {
+  .app {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .app {
+    width: 100%;
+  }
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Focus styles for accessibility */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid #e74c3c;
+  outline-offset: 2px;
 }
 @keyframes fadeIn {
   0%{
